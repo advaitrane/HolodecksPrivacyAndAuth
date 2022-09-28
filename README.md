@@ -6,5 +6,7 @@ We envision Holodecks as interactive, immersive 3D displays that materialize vir
 
 ## Objective
 This project aims to frame privacy and authentication strategies for displaying private content using holodecks. These include authentication strategies for an individual to access a holodeck displaying private content, a privacy model to hide private content from unauthorized individuals, and a sharing model to share private content with authorized individuals. The project would provide guidelines for developing holodeck applications, as well as newer immersive AR/VR applications, where privacy of an individual must be protected.
+
 Holodecks pose a challenge to privacy as they materialize a 3-dimensional object in space such that multiple individuals can see it without any accessories. In this case, authentication and privacy strategies should account for other individuals'  presence when displaying private content. Strategies can also use Flying Light Specks (FLSs) and workspace peripherals to implement novel authentication methods. Furthermore, sharing private content can be performed in the scope of a single holodeck with other individuals or with multiple holodeck displays at different locations.
+
 We wish to describe privacy and authentication models as well as develop a prototype system implementing our models. We will look to simulation frameworks like AirSim and Unity to develop prototype implementations. 
