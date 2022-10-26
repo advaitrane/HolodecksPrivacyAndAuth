@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class RenderImage : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Rigidbody Drone;
     public Vector3 startPosition = new Vector3(0, 0, 1);
     public Vector3 targetPosition = new Vector3(0, 1.5f, 1);
-    public int speed = 5;
-    public bool startUp = false;
     
-    private float distanceToStop = 0.5f;
+    private bool startUp = false;
+    private float speed = 0.5f;
+    private float distanceToStop = 0.01f;
     private Vector3 desiredVelocity;
     private float lastEuclideanDist;
+    private bool surfaceEmission = false;
 
+    // Start is called before the first frame update
     void Start()
     {
         Drone.position = startPosition;
@@ -40,6 +41,18 @@ public class RenderImage : MonoBehaviour
                 var direction = targetPosition - Drone.position;
                 Drone.AddRelativeForce(direction.normalized * speed, ForceMode.Force);
             }
+
+            // Drone.position = targetPosition;
+
+            if ((EuclideanDist < distanceToStop) && !surfaceEmission)
+            {
+                this.transform.Find("Surface").GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
+            }
         }
+    }
+
+    public void InitializeDrone()
+    {
+        startUp = true;
     }
 }
